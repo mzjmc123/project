@@ -49,7 +49,7 @@ public class ResponseUtil {
         return obj;
     }
 
-    public static Object fail() {
+    public static Object fail(String defaultMessage) {
         Map<String, Object> obj = new HashMap<String, Object>();
         obj.put("succ", 0);
         obj.put("code", -1);

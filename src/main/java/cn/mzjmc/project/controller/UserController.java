@@ -21,20 +21,19 @@ public class UserController {
     private UserService userService;
 
     /**
-     * @Valid  开启校验 对应实体中的校验
      * @param user
      * @return
      */
     @PostMapping("/addUser")
-    public String addUser(@Valid User user, BindingResult result)
+    public Object addUser(@Valid User user, BindingResult result)
     {
         if (result.hasErrors()){
-            return result.getFieldError().getDefaultMessage();
+           return  ResponseUtil.fail(402,result.getFieldError().getDefaultMessage());
         }
         System.out.println(user.getName());
         System.out.println(user.getAge());
-        userService.addUser(user);
-        return "ok!";
+        List<Object> objects = userService.addUser(user);
+        return ResponseUtil.ok();
     }
 
     @GetMapping("/findAllUser")

@@ -16,9 +16,10 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
     @Override
-    public void addUser(User user) {
+    public List<Object> addUser(User user) {
 
         userMapper.addUser(user);
+        return null;
     }
 
     @Override
