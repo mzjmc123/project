@@ -3,7 +3,7 @@
 <mapper namespace="cn.mzjmc.project.mapper.UserMapper">
 
     <select id="findUserAll" resultType="cn.mzjmc.project.entity.User">
-        select name from user
+        select * from user
     </select>
 
     <insert id="addUser">
